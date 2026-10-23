@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { height: 100%; }
+body { @apply bg-ink-950 text-fog-100 font-sans antialiased; font-size: 15px; }
+*:focus-visible { outline: 2px solid #2DD4BF; outline-offset: 2px; border-radius: 6px; }
+
+@layer components {
+  .card { @apply bg-ink-900 border border-ink-700/70 rounded-2xl; }
+  .card-pad { @apply p-5; }
+  .label { @apply text-[11px] uppercase tracking-[0.14em] text-fog-400 font-medium; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-[14px] font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed min-h-[42px]; }
+  .btn-primary { @apply btn bg-teal-400 text-ink-950 hover:bg-teal-300; }
+  .btn-ghost { @apply btn bg-ink-800 text-fog-100 hover:bg-ink-700 border border-ink-600; }
+  .btn-danger { @apply btn bg-coral-900 text-coral-400 hover:bg-coral-500/30 border border-coral-500/40; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[12px] font-medium border; }
+  .mono { @apply font-mono text-[12.5px]; }
+  .input { @apply bg-ink-850 border border-ink-600 rounded-lg px-3 py-2 text-fog-100 focus:border-teal-400 outline-none min-h-[40px]; }
+}
+
+.fade-in { animation: fade .28s ease-out both; }
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.pulse-dot { animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: .35 } }
+@media (prefers-reduced-motion: reduce) { .fade-in, .pulse-dot { animation: none; } }
+::-webkit-scrollbar { width: 10px; height: 10px; } ::-webkit-scrollbar-thumb { background: #283553; border-radius: 8px; }

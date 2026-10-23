@@ -1,0 +1,3 @@
+# STAND-IN for python:3.13-slim-bookworm (official images cannot be pulled in this sandbox)
+FROM standin-rootfs:local
+RUN python3 -m ensurepip --default-pip >/dev/null && ln -sf /usr/bin/python3 /usr/local/bin/python && python -m pip --version

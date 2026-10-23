@@ -1,0 +1,404 @@
+{
+ "generated_at": "2026-10-23 11:25 UTC",
+ "pipeline_version": "accessgraph-pipeline-2.1.0",
+ "disclaimer": "Measured on procedurally rendered SYNTHETIC scenes with exact ground truth (single cardboard box, fixed porch, CPU). Not validated on real Ring footage; real-world accuracy is unknown.",
+ "n_scenes": 100,
+ "random_set": {
+  "n": 300,
+  "n_borderline": 28,
+  "n_positive": 156,
+  "n_negative": 116,
+  "precision": 0.975,
+  "recall": 1.0,
+  "recall_including_review": 1.0,
+  "false_clear_rate": 0.0,
+  "false_alarm_rate": 0.0345,
+  "unresolved_rate": 0.04,
+  "clear_width_mae_cm": 6.05,
+  "clear_width_bias_cm": -5.94,
+  "clear_width_p95_abs_err_cm": 25.91,
+  "footprint_iou_mean": 0.563,
+  "latency_p50_ms": 524.7,
+  "latency_p95_ms": 789.9,
+  "confusion": {
+   "obstructed": {
+    "POTENTIAL_OBSTRUCTION": 156,
+    "NO_OBSTRUCTION_OBSERVED": 0,
+    "REVIEW_REQUIRED": 0,
+    "UNABLE_TO_VERIFY": 0
+   },
+   "clear": {
+    "POTENTIAL_OBSTRUCTION": 4,
+    "NO_OBSTRUCTION_OBSERVED": 109,
+    "REVIEW_REQUIRED": 3,
+    "UNABLE_TO_VERIFY": 0
+   },
+   "borderline": {
+    "POTENTIAL_OBSTRUCTION": 9,
+    "NO_OBSTRUCTION_OBSERVED": 10,
+    "REVIEW_REQUIRED": 9,
+    "UNABLE_TO_VERIFY": 0
+   }
+  },
+  "by_config": {
+   "hh_a/METRIC": {
+    "n": 100,
+    "n_borderline": 12,
+    "n_positive": 31,
+    "n_negative": 57,
+    "precision": 0.9118,
+    "recall": 1.0,
+    "recall_including_review": 1.0,
+    "false_clear_rate": 0.0,
+    "false_alarm_rate": 0.0526,
+    "unresolved_rate": 0.06,
+    "clear_width_mae_cm": 5.8,
+    "clear_width_bias_cm": -5.67,
+    "clear_width_p95_abs_err_cm": 23.2,
+    "footprint_iou_mean": 0.53,
+    "latency_p50_ms": 557.8,
+    "latency_p95_ms": 790.3,
+    "confusion": {
+     "obstructed": {
+      "POTENTIAL_OBSTRUCTION": 31,
+      "NO_OBSTRUCTION_OBSERVED": 0,
+      "REVIEW_REQUIRED": 0,
+      "UNABLE_TO_VERIFY": 0
+     },
+     "clear": {
+      "POTENTIAL_OBSTRUCTION": 3,
+      "NO_OBSTRUCTION_OBSERVED": 51,
+      "REVIEW_REQUIRED": 3,
+      "UNABLE_TO_VERIFY": 0
+     },
+     "borderline": {
+      "POTENTIAL_OBSTRUCTION": 5,
+      "NO_OBSTRUCTION_OBSERVED": 4,
+      "REVIEW_REQUIRED": 3,
+      "UNABLE_TO_VERIFY": 0
+     }
+    }
+   },
+   "hh_b/METRIC": {
+    "n": 100,
+    "n_borderline": 15,
+    "n_positive": 51,
+    "n_negative": 34,
+    "precision": 0.9808,
+    "recall": 1.0,
+    "recall_including_review": 1.0,
+    "false_clear_rate": 0.0,
+    "false_alarm_rate": 0.0294,
+    "unresolved_rate": 0.06,
+    "clear_width_mae_cm": 6.31,
+    "clear_width_bias_cm": -6.22,
+    "clear_width_p95_abs_err_cm": 24.35,
+    "footprint_iou_mean": 0.53,
+    "latency_p50_ms": 594.0,
+    "latency_p95_ms": 798.4,
+    "confusion": {
+     "obstructed": {
+      "POTENTIAL_OBSTRUCTION": 51,
+      "NO_OBSTRUCTION_OBSERVED": 0,
+      "REVIEW_REQUIRED": 0,
+      "UNABLE_TO_VERIFY": 0
+     },
+     "clear": {
+      "POTENTIAL_OBSTRUCTION": 1,
+      "NO_OBSTRUCTION_OBSERVED": 33,
+      "REVIEW_REQUIRED": 0,
+      "UNABLE_TO_VERIFY": 0
+     },
+     "borderline": {
+      "POTENTIAL_OBSTRUCTION": 3,
+      "NO_OBSTRUCTION_OBSERVED": 6,
+      "REVIEW_REQUIRED": 6,
+      "UNABLE_TO_VERIFY": 0
+     }
+    }
+   },
+   "hh_b/APPARENT": {
+    "n": 100,
+    "n_borderline": 1,
+    "n_positive": 74,
+    "n_negative": 25,
+    "precision": 1.0,
+    "recall": 1.0,
+    "recall_including_review": 1.0,
+    "false_clear_rate": 0.0,
+    "false_alarm_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "clear_width_mae_cm": null,
+    "clear_width_bias_cm": null,
+    "clear_width_p95_abs_err_cm": null,
+    "footprint_iou_mean": 0.628,
+    "latency_p50_ms": 478.9,
+    "latency_p95_ms": 713.3,
+    "confusion": {
+     "obstructed": {
+      "POTENTIAL_OBSTRUCTION": 74,
+      "NO_OBSTRUCTION_OBSERVED": 0,
+      "REVIEW_REQUIRED": 0,
+      "UNABLE_TO_VERIFY": 0
+     },
+     "clear": {
+      "POTENTIAL_OBSTRUCTION": 0,
+      "NO_OBSTRUCTION_OBSERVED": 25,
+      "REVIEW_REQUIRED": 0,
+      "UNABLE_TO_VERIFY": 0
+     },
+     "borderline": {
+      "POTENTIAL_OBSTRUCTION": 1,
+      "NO_OBSTRUCTION_OBSERVED": 0,
+      "REVIEW_REQUIRED": 0,
+      "UNABLE_TO_VERIFY": 0
+     }
+    }
+   }
+  }
+ },
+ "failures": [
+  {
+   "scene": 46,
+   "household": "hh_a",
+   "mode": "METRIC",
+   "gt_obstructed": false,
+   "borderline": false,
+   "pred": "POTENTIAL_OBSTRUCTION",
+   "p": 1.0,
+   "latency_ms": 654.6,
+   "n_objects": 1,
+   "box": {
+    "x": 111.8,
+    "y": 273.7,
+    "w": 33.2,
+    "d": 46.8,
+    "h": 34.7,
+    "rot": 21.6
+   },
+   "footprint_iou": 0.3337,
+   "clear_width_err_cm": -36.6
+  },
+  {
+   "scene": 68,
+   "household": "hh_a",
+   "mode": "METRIC",
+   "gt_obstructed": false,
+   "borderline": false,
+   "pred": "POTENTIAL_OBSTRUCTION",
+   "p": 1.0,
+   "latency_ms": 740.9,
+   "n_objects": 1,
+   "box": {
+    "x": 97.0,
+    "y": 179.9,
+    "w": 53.6,
+    "d": 44.6,
+    "h": 43.1,
+    "rot": 18.8
+   },
+   "footprint_iou": 0.2105,
+   "clear_width_err_cm": -60.67
+  },
+  {
+   "scene": 98,
+   "household": "hh_a",
+   "mode": "METRIC",
+   "gt_obstructed": false,
+   "borderline": false,
+   "pred": "POTENTIAL_OBSTRUCTION",
+   "p": 0.944,
+   "latency_ms": 668.4,
+   "n_objects": 1,
+   "box": {
+    "x": 231.7,
+    "y": 171.2,
+    "w": 49.1,
+    "d": 34.2,
+    "h": 39.6,
+    "rot": -29.9
+   },
+   "footprint_iou": 0.1969,
+   "clear_width_err_cm": -49.0
+  },
+  {
+   "scene": 98,
+   "household": "hh_b",
+   "mode": "METRIC",
+   "gt_obstructed": false,
+   "borderline": false,
+   "pred": "POTENTIAL_OBSTRUCTION",
+   "p": 1.0,
+   "latency_ms": 701.0,
+   "n_objects": 1,
+   "box": {
+    "x": 231.7,
+    "y": 171.2,
+    "w": 49.1,
+    "d": 34.2,
+    "h": 39.6,
+    "rot": -29.9
+   },
+   "footprint_iou": 0.1969,
+   "clear_width_err_cm": -52.7
+  }
+ ],
+ "scenarios": [
+  {
+   "id": 1,
+   "name": "Parcel outside the marked route",
+   "expected": "NO_OBSTRUCTION_OBSERVED",
+   "observed": "NO_OBSTRUCTION_OBSERVED",
+   "pass": true
+  },
+  {
+   "id": 2,
+   "name": "Parcel visibly overlapping the route",
+   "expected": "POTENTIAL_OBSTRUCTION",
+   "observed": "POTENTIAL_OBSTRUCTION",
+   "pass": true
+  },
+  {
+   "id": 3,
+   "name": "Identical frame, different household route/need",
+   "expected": "A: NO_OBSTRUCTION, B: POTENTIAL",
+   "observed": "A: NO_OBSTRUCTION_OBSERVED, B: POTENTIAL_OBSTRUCTION",
+   "pass": true
+  },
+  {
+   "id": 4,
+   "name": "Parcel partially moved but overlap remains",
+   "expected": "PARTIALLY_RESOLVED (not closed)",
+   "observed": "PARTIALLY_RESOLVED",
+   "pass": true
+  },
+  {
+   "id": 5,
+   "name": "Parcel repositioned into the delivery zone",
+   "expected": "RESOLVED (verified)",
+   "observed": "RESOLVED / VERIFIED_NO_OBSTRUCTION_OBSERVED",
+   "pass": true
+  },
+  {
+   "id": 6,
+   "name": "Camera view obscured",
+   "expected": "UNABLE_TO_VERIFY",
+   "observed": "UNABLE_TO_VERIFY",
+   "pass": true
+  },
+  {
+   "id": 7,
+   "name": "Low-light or blurry observation",
+   "expected": "UNABLE_TO_VERIFY (both)",
+   "observed": "low-light UNABLE_TO_VERIFY, blur UNABLE_TO_VERIFY",
+   "pass": true
+  },
+  {
+   "id": 8,
+   "name": "Camera displaced after calibration",
+   "expected": "UNABLE_TO_VERIFY (calibration DISPLACED)",
+   "observed": "UNABLE_TO_VERIFY (DISPLACED)",
+   "pass": true
+  },
+  {
+   "id": 9,
+   "name": "Object detected but ground contact unreliable",
+   "expected": "REVIEW_REQUIRED",
+   "observed": "REVIEW_REQUIRED",
+   "pass": true
+  },
+  {
+   "id": 10,
+   "name": "Duplicate event delivered twice",
+   "expected": "second delivery ignored",
+   "observed": "first processed=True, second duplicate=True",
+   "pass": true
+  },
+  {
+   "id": 11,
+   "name": "Old event arrives after a newer observation",
+   "expected": "STALE, state unchanged",
+   "observed": "STALE, PARTIALLY_RESOLVED",
+   "pass": true
+  },
+  {
+   "id": 12,
+   "name": "Assistance request without authorisation (incl. impersonation)",
+   "expected": "send 403, impersonated approval 403, nothing delivered",
+   "observed": "send 403, impersonated approve 403, inbox 0",
+   "pass": true
+  },
+  {
+   "id": 13,
+   "name": "Ring stream/API unavailable (no credentials here)",
+   "expected": "explicit 503 for the live household, app keeps working",
+   "observed": "503: Ring is not configured: set RING_ACCESS_TOKEN (or RING_REFRE",
+   "pass": true
+  },
+  {
+   "id": 14,
+   "name": "Uncertainty straddles decision threshold (true clear width = 91.0 cm = requirement)",
+   "expected": "REVIEW_REQUIRED",
+   "observed": "REVIEW_REQUIRED (p=0.744)",
+   "pass": true
+  },
+  {
+   "id": 15,
+   "name": "Valid vs invalid webhook signature",
+   "expected": "valid 200, invalid 401",
+   "observed": "valid 200, invalid 401",
+   "pass": true
+  },
+  {
+   "id": 16,
+   "name": "Replay with fabricated future timestamp vs live Ring incident",
+   "expected": "rejected (403), live incident stays open",
+   "observed": "upload 403, incident ASSESSED",
+   "pass": true
+  },
+  {
+   "id": 17,
+   "name": "Live closure needs two independent server-captured clear observations (separate sessions, time-separated)",
+   "expected": "open after 1st, RESOLVED after an independent 2nd",
+   "observed": "ASSESSED -> RESOLVED",
+   "pass": true
+  },
+  {
+   "id": 18,
+   "name": "Household B retention purge vs household A evidence",
+   "expected": "household A frame still served (200)",
+   "observed": "200",
+   "pass": true
+  },
+  {
+   "id": 19,
+   "name": "Credentials never accepted in media URLs",
+   "expected": "signed URLs only",
+   "observed": "signed only",
+   "pass": true
+  },
+  {
+   "id": 20,
+   "name": "Unexplained change on the route, no segmentable object",
+   "expected": "REVIEW_REQUIRED (not clear)",
+   "observed": "REVIEW_REQUIRED",
+   "pass": true
+  },
+  {
+   "id": 21,
+   "name": "No clear-scene reference (colour-prior fallback)",
+   "expected": "REVIEW_REQUIRED (advisory only)",
+   "observed": "REVIEW_REQUIRED",
+   "pass": true
+  },
+  {
+   "id": 22,
+   "name": "Second clear frame from the SAME capture session",
+   "expected": "does not close the live incident",
+   "observed": "ASSESSED",
+   "pass": true
+  }
+ ],
+ "runtime_s": 146.4,
+ "cpu_count": 2
+}

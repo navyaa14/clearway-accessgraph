@@ -1,0 +1,18 @@
+# SANDBOX-ONLY override: build on local stand-in bases through the sandbox egress proxy.
+services:
+  clearway:
+    build:
+      network: host
+      args:
+        NODE_IMAGE: standin-node:22
+        PYTHON_IMAGE: standin-python:3.13
+        HTTPS_PROXY: ${HTTPS_PROXY}
+        https_proxy: ${HTTPS_PROXY}
+        NO_PROXY: 127.0.0.1,localhost
+        no_proxy: 127.0.0.1,localhost
+      secrets: [extra_ca]
+    ports: !override
+      - "8003:8000"
+secrets:
+  extra_ca:
+    file: /root/.ccr/ca-bundle.crt

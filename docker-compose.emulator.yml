@@ -1,0 +1,43 @@
+# Run ClearWay's LIVE Ring code path end to end at no cost, against the local Ring API emulator (NOT Ring):
+#
+#   docker compose -f docker-compose.yml -f docker-compose.emulator.yml up --build -d
+#   docker compose -f docker-compose.yml -f docker-compose.emulator.yml exec clearway python -m ringemu.demo
+#
+# Then open http://localhost:8000 → "Sign in to a live household…" → ID hh_live, household token / approver token below.
+# Everything captured this way is labelled RING_API_EMULATOR. To use the real Ring Developer Playground instead,
+# drop this file and put your Ring credentials in .env (see README).
+services:
+  ring-emulator:
+    image: clearway-accessgraph:local          # same image; different entry point
+    command: ["python", "-m", "ringemu"]
+    environment:
+      RINGEMU_WEBHOOK_URL: http://clearway:8000/webhooks/ring
+      RINGEMU_WEBHOOK_SECRET: local-emulator-webhook-secret
+      RINGEMU_CONTROL_TOKEN: local-emulator-control
+      RINGEMU_SESSION_LIMIT_S: "30"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; urllib.request.urlopen('http://127.0.0.1:8090/docs', timeout=4); sys.exit(0)"]
+      interval: 10s
+      timeout: 5s
+      start_period: 20s
+      retries: 6
+    restart: unless-stopped
+
+  clearway:
+    depends_on:
+      ring-emulator:
+        condition: service_healthy
+    environment:
+      RING_API_BASE: http://ring-emulator:8090
+      RING_OAUTH_URL: http://ring-emulator:8090/oauth/token
+      RING_CLIENT_ID: clearway-emulator-client
+      RING_CLIENT_SECRET: clearway-emulator-secret
+      RING_REFRESH_TOKEN: emu-refresh-initial
+      RING_DEVICE_ID: emu-front-door-1
+      RING_WEBHOOK_SECRET: local-emulator-webhook-secret
+      RING_EMULATOR_CONTROL_TOKEN: local-emulator-control
+      # Local demo credentials for the live household (change them if the port is reachable by others)
+      CLEARWAY_LIVE_HOUSEHOLD_TOKEN: local-live-household
+      CLEARWAY_LIVE_APPROVER_TOKEN: local-live-approver
+      # Live closure needs two independent clear captures; 20 s apart keeps a 3-minute demo practical (default 60 s)
+      CLEARWAY_LIVE_MIN_CLEAR_SEPARATION_S: "20"

@@ -1,0 +1,16 @@
+node_modules/
+frontend/dist/
+backend/data/
+data/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+backend/eval/results/rows.json
+.env.local
+.env.production
+.env.development
+*.pem
+*.p12
+*.pfx
+*.sqlite3

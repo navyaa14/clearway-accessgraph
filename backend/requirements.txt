@@ -1,0 +1,11 @@
+fastapi==0.159.1
+uvicorn[standard]==0.54.0
+pydantic==2.13.5
+python-multipart==0.0.32
+opencv-python-headless==5.0.0.93
+shapely==2.2.0
+numpy==2.5.3
+httpx==0.28.1
+aiortc==1.15.0
+av==17.1.0
+cryptography==50.0.1

@@ -1,0 +1,28 @@
+services:
+  clearway:
+    build:
+      context: .
+      # Behind a TLS-intercepting proxy, uncomment and point at its CA certificate:
+      # secrets: [extra_ca]
+    image: clearway-accessgraph:local
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: .env          # optional: copy .env.example to .env to configure Ring / live household / AWS
+        required: false
+    volumes:
+      - clearway-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=4).status == 200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 3
+
+volumes:
+  clearway-data:
+
+# secrets:
+#   extra_ca:
+#     file: ./proxy-ca.pem

@@ -1,0 +1,2 @@
+# Optional: only needed when AWS_ENABLED=true (Stage 3 Bedrock explanations)
+boto3>=1.35
